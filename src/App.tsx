@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MyPage from './pages/MyPage';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
         <Route path="/" element={<div>홈</div>} />
         <Route path="/board" element={<div>버킷보드</div>} />
         <Route path="/collect" element={<div>콜랙트북</div>} />
+        <Route path="/mypage" element={<MyPage />} />   {/* 🆕 이거 추가 */}
         <Route path="/settings" element={<div>설정</div>} />
       </Routes>
     </BrowserRouter>
