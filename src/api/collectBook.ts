@@ -1,10 +1,17 @@
 import client from './client';
 import type {
   CollectBookDetail,
+  CollectBookListItem,
   ChapterRecordSummary,
   RecordDetail,
   RecordComment,
 } from '../types/collectBook';
+
+/** 콜렉트북 목록 조회 (내 책장) */
+export const getCollectBooks = async () => {
+  const { data } = await client.get<CollectBookListItem[]>('/collect-books');
+  return data;
+};
 
 /** 콜렉트북 상세 조회 (챕터 목록 포함) */
 export const getCollectBook = async (collectBookId: number) => {
