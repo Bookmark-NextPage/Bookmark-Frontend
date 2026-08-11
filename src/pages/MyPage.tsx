@@ -1,44 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from './Header';
-import api from '../api/axios';
+import Header from '../components/Header';
+import { getMyPage, updateProfile } from '../api/user';
+import { visibilityLabel } from '../utils/bookColor';
+import type { MyPageResponse } from '../types/user';
 import './MyPage.css';
-
-// ---------- 서버 응답 타입 (Swagger 응답 그대로 반영) ----------
-interface MyPageResponse {
-  profile: {
-    userId: number;
-    name: string;
-    loginId: string;
-    bio: string | null;
-    profileImageUrl: string | null;
-  };
-  stats: {
-    totalRecords: number;
-    completedBuckets: number;
-    collectBookCount: number;
-    friendCount: number;
-  };
-  recentBooks: RecentBook[];
-  friends: FriendSummary[];
-}
-
-interface RecentBook {
-  // ⚠️ 아직 실제 데이터가 없어서 필드명이 확정이 아니에요.
-  // 콜랙트북 생성 후 다시 확인해서 맞는 필드명으로 수정해야 해요!
-  collectBookId?: number;
-  year?: string | number;
-  title?: string;
-  visibility?: string;
-  [key: string]: unknown;
-}
-
-interface FriendSummary {
-  userId?: number;
-  name?: string;
-  loginId?: string;
-  [key: string]: unknown;
-}
 
 export default function MyPage() {
   const navigate = useNavigate();
@@ -52,10 +18,9 @@ export default function MyPage() {
   const [draftBio, setDraftBio] = useState('');
 
   useEffect(() => {
-    api
-      .get<MyPageResponse>('/user/me/mypage')
+    getMyPage()
       .then((res) => {
-        setData(res.data);
+        setData(res);
         setLoading(false);
       })
       .catch((err) => {
@@ -75,11 +40,7 @@ export default function MyPage() {
   const saveProfile = async () => {
     if (!data) return;
     try {
-      // PATCH /api/user/me/profile 실제 연동
-      await api.patch('/user/me/profile', {
-        name: draftName,
-        bio: draftBio,
-      });
+      await updateProfile({ name: draftName, bio: draftBio });
       setData({
         ...data,
         profile: { ...data.profile, name: draftName, bio: draftBio },
@@ -169,12 +130,12 @@ export default function MyPage() {
               <div className="fr-empty-books">아직 만든 콜랙트북이 없어요.</div>
             ) : (
               <div>
-                {recentBooks.map((b, i) => (
-                  <div className="priv-row" key={b.collectBookId ?? i}>
+                {recentBooks.map((b) => (
+                  <div className="priv-row" key={b.collectBookId}>
                     <span className="priv-book-label">
-                      {b.year ?? '?'} · {b.title ?? '제목 없음'}
+                      {b.year} · {b.title}
                     </span>
-                    <span className="priv-book-label">{b.visibility ?? '-'}</span>
+                    <span className="priv-book-label">{visibilityLabel(b.visibility)}</span>
                   </div>
                 ))}
               </div>
@@ -191,14 +152,14 @@ export default function MyPage() {
               <div className="fr-empty-books">아직 친구가 없어요.</div>
             ) : (
               <div className="friends">
-                {friends.map((f, i) => (
+                {friends.map((f) => (
                   <div
                     className="friend"
-                    key={f.userId ?? i}
-                    onClick={() => f.userId && navigate(`/friend/${f.userId}`)}
+                    key={f.userId}
+                    onClick={() => navigate(`/friend/${f.userId}`)}
                   >
-                    <div className="fa">{(f.name ?? '?').slice(0, 1)}</div>
-                    {f.name ?? '이름없음'}
+                    <div className="fa">{f.name.slice(0, 1)}</div>
+                    {f.name}
                   </div>
                 ))}
               </div>

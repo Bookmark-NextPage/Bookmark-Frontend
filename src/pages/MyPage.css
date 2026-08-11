@@ -104,6 +104,12 @@
 }
 .btn-ghost:hover { background: #fbeee1; }
 
+.btn-danger {
+  background: #ffffff; border: 1px solid #e7c5c5; border-radius: 20px;
+  padding: 9px 18px; font-size: 13px; cursor: pointer; color: #b23b3b;
+}
+.btn-danger:hover { background: #fbeaea; }
+
 /* 모달 */
 .overlay {
   position: fixed; inset: 0; background: rgba(30, 25, 20, 0.45);
