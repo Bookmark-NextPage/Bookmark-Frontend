@@ -1,0 +1,23 @@
+/* 와이어프레임의 디자인 토큰 전역 CSS 변수
+   모든 페이지/컴포넌트에서 var(--ink) 처럼 참조 */
+:root {
+  --paper: #f7f5ef;
+  --paper-2: #ffffff;
+  --kraft: rgba(94, 26, 9, 0.07);
+  --kraft-2: #fbeee1;
+  --brand-tint: rgba(94, 26, 9, 0.07);
+  --brand-tint-2: rgba(94, 26, 9, 0.12);
+  --board: #ede2d3;
+  --board-edge: #dcc9ae;
+  --ink: #5e1a09;
+  --ink-soft: rgba(94, 26, 9, 0.62);
+  --line: #e7e0d3;
+  --accent: #5e1a09;
+  --accent-2: rgba(94, 26, 9, 0.35);
+  --sage: rgba(94, 26, 9, 0.55);
+  --sky: rgba(94, 26, 9, 0.22);
+  --shelf-dark: #b9987c;
+  --shadow: 0 10px 30px rgba(40, 30, 22, 0.1);
+  --stripe: #f6f1e6;
+  --em: #5e1a09;
+}

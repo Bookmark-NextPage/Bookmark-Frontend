@@ -1,0 +1,67 @@
+/* 여러 페이지가 공유하는 공통 레이아웃.
+   각 페이지 CSS보다 먼저 로드되도록 main.tsx에서 import */
+.bm-page {
+  min-height: 100vh;
+  background: var(--stripe);
+  font-family: 'Pretendard', sans-serif;
+  color: var(--ink);
+}
+
+.bm-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 40px 90px;
+  box-sizing: border-box;
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.page-title {
+  font-family: 'Pretendard';
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ink);
+}
+.page-sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+.ph-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* 공통 버튼 */
+.btn-fill {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 9px 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.btn-fill:hover {
+  background: #431206;
+}
+.btn-ghost {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 9px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.btn-ghost:hover {
+  background: var(--kraft-2);
+}

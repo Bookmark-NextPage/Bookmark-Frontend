@@ -85,3 +85,11 @@ export interface RecordComment {
   content: string;
   createdAt: string; // ISO 8601
 }
+
+/** 콜렉트북 목록 항목 - GET /collect-books */
+export interface CollectBookListItem {
+  collectBookId: number;
+  title: string;
+  year: number;
+  bookColor: BookColor;
+}

@@ -115,3 +115,35 @@
   color: rgba(94, 26, 9, 0.62);
   cursor: pointer;
 }
+
+/* 아바타 드롭다운 메뉴 */
+.bm-avatar-wrap {
+  position: relative;
+}
+.bm-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+}
+.bm-menu {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e7e0d3;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(40, 30, 22, 0.1);
+  padding: 5px;
+  min-width: 130px;
+  z-index: 61;
+}
+.bm-menu div {
+  font-size: 13px;
+  padding: 9px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  color: #5e1a09;
+}
+.bm-menu div:hover {
+  background: #fbeee1;
+}
