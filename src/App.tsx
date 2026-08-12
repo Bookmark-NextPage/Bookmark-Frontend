@@ -7,6 +7,7 @@ import MyPage from './pages/MyPage';
 import FriendProfile from './pages/FriendProfile';
 import BucketBoard from './pages/BucketBoard';
 import MemoEdit from './pages/MemoEdit';
+import RecordCreate from './pages/RecordCreate';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/board/edit/:memoId" element={<MemoEdit />} />
           <Route path="/collect" element={<CollectBook />} />
           <Route path="/collect/:id" element={<div>콜랙트북 상세 (작업 예정)</div>} />
+          <Route path="/collect/record/new" element={<RecordCreate />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/friend/:id" element={<FriendProfile />} />
           <Route path="/settings" element={<div>설정</div>} />
