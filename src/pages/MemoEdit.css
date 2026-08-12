@@ -1,0 +1,125 @@
+/* 메모지 수정 화면. 칩(.chip) 스타일은 BucketBoard.css 와 공유합니다. */
+
+.edit-main {
+  padding-bottom: 80px;
+}
+
+.back-link {
+  height: 36px;
+  padding: 0 16px;
+  margin-bottom: 22px;
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 18px;
+  background: var(--paper-2, #fffdf8);
+  font-size: 13px;
+  color: var(--ink, #5e1a09);
+  cursor: pointer;
+  transition: 0.15s;
+}
+.back-link:hover {
+  background: var(--kraft-2, #fbeee1);
+}
+
+.edit-card {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 26px 28px;
+  background: var(--paper-2, #fffdf8);
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 16px;
+  box-shadow: 0 8px 26px rgba(40, 30, 22, 0.06);
+}
+.edit-card h1 {
+  margin: 0 0 20px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink, #5e1a09);
+}
+
+.edit-empty {
+  font-size: 13.5px;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+  text-align: center;
+  padding: 48px 28px;
+}
+
+.edit-field {
+  margin-bottom: 20px;
+}
+.edit-field > label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12.5px;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+.edit-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 10px;
+  background: #f7f5ef;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink, #5e1a09);
+  resize: vertical;
+  outline: none;
+}
+.edit-field textarea:focus {
+  border-color: var(--accent, #5e1a09);
+}
+
+.edit-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 26px;
+}
+.edit-actions-right {
+  display: flex;
+  gap: 8px;
+}
+.edit-actions button {
+  height: 38px;
+  padding: 0 20px;
+  border-radius: 19px;
+  border: 1px solid var(--line, #e7e0d3);
+  font-size: 13px;
+  cursor: pointer;
+}
+.edit-actions .ghost {
+  background: var(--paper-2, #fffdf8);
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+.edit-actions .primary {
+  border-color: transparent;
+  background: var(--accent, #5e1a09);
+  color: #fff;
+  font-weight: 600;
+}
+.edit-actions .primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.edit-actions .danger-ghost {
+  border-color: transparent;
+  background: #f0e4e0;
+  color: #8a3520;
+}
+.edit-actions .danger-ghost:hover {
+  background: #e8d5cf;
+}
+
+/* 삭제 확인 — 카드 안에 이어붙는 형태 */
+.confirm-inline {
+  margin-top: 22px;
+  padding: 18px 20px;
+  background: #f7efec;
+  border-radius: 12px;
+}
+.confirm-inline p {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--ink, #5e1a09);
+}

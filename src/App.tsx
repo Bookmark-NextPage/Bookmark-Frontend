@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import CollectBook from './pages/CollectBook';
 import MyPage from './pages/MyPage';
 import FriendProfile from './pages/FriendProfile';
+import BucketBoard from './pages/BucketBoard';
+import MemoEdit from './pages/MemoEdit';
 
 function App() {
   return (
@@ -16,7 +18,8 @@ function App() {
         {/* 로그인 필요 */}
         <Route element={<RequireAuth />}>
           <Route path="/" element={<Home />} />
-          <Route path="/board" element={<div>버킷보드</div>} />
+          <Route path="/board" element={<BucketBoard />} />
+          <Route path="/board/edit/:memoId" element={<MemoEdit />} />
           <Route path="/collect" element={<CollectBook />} />
           <Route path="/collect/:id" element={<div>콜랙트북 상세 (작업 예정)</div>} />
           <Route path="/mypage" element={<MyPage />} />

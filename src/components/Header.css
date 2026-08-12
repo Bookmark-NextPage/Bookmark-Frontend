@@ -147,3 +147,6 @@
 .bm-menu div:hover {
   background: #fbeee1;
 }
+
+.bm-tabs button.on { background: #5e1a09; color: #fff; font-weight: 600; }
+.bm-tabs button.on:hover { background: #5e1a09; color: #fff; }
