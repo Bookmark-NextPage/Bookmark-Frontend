@@ -1,0 +1,247 @@
+.reader-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.reader-stage {
+  display: flex;
+  justify-content: center;
+}
+.reader {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 640px;
+  background: var(--paper-2);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  display: flex;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-sizing: border-box;
+}
+.reader::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 20px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  z-index: 3;
+}
+.r-half {
+  width: 50%;
+  padding: 34px 36px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.r-half.left {
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+}
+.r-half.right {
+  position: relative;
+}
+.r-meta {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.r-theme {
+  background: var(--brand-tint-2);
+  border-radius: 10px;
+  padding: 2px 9px;
+  margin-left: 8px;
+}
+.r-title {
+  font-family: 'Pretendard';
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.r-text {
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  color: var(--ink);
+}
+.r-photos {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.rp {
+  width: 70px;
+  height: 56px;
+  background: var(--brand-tint);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.rp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.engage {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.like-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 20px;
+  padding: 7px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.like-btn.on {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.cm-count {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.comments {
+  margin-top: 12px;
+}
+.cm-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.cm-item b {
+  margin-right: 8px;
+}
+.cm-add {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.cm-add input {
+  flex: 1;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  padding: 9px 14px;
+  font-size: 12.5px;
+  outline: none;
+  color: var(--ink);
+}
+.cm-add button {
+  border-radius: 16px;
+  padding: 9px 16px;
+  font-size: 12.5px;
+}
+.ai-art {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  position: relative;
+  background: linear-gradient(135deg, var(--kraft-2), var(--brand-tint));
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.art-label {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  font-size: 10px;
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 3px 9px;
+  z-index: 2;
+}
+.ai-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.a-quote {
+  font-family: 'Pretendard';
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink);
+}
+.reader-bookmark {
+  position: absolute;
+  right: 52px;
+  top: -6px;
+  width: 52px;
+  background: var(--accent);
+  padding: 14px 8px 22px;
+  color: #fff;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 88%, 0 100%);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  z-index: 20;
+}
+.reader-bookmark .bm-t {
+  writing-mode: vertical-rl;
+  font-size: 10px;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+.page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+.pg-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--ink-soft);
+}
+.pg-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.pg-count {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 860px) {
+  .reader {
+    flex-direction: column;
+  }
+  .reader::before {
+    display: none;
+  }
+  .r-half {
+    width: 100%;
+  }
+}

@@ -3,10 +3,13 @@ import Header from '../components/Header';
 import { useCollectBooks } from '../hooks/useCollectBooks';
 import { bookGradient } from '../utils/bookColor';
 import './CollectBook.css';
+import { useState } from 'react';
+import CreateBookModal from '../components/CreateBookModal';
 
 export default function CollectBook() {
   const navigate = useNavigate();
   const { data: books, isLoading, isError } = useCollectBooks();
+  const [showCreate, setShowCreate] = useState(false);
 
   return (
     <div className="bm-page">
@@ -18,6 +21,11 @@ export default function CollectBook() {
             <div className="page-sub">
               이룬 기록이 쌓인 나의 책장. 책 1권은 1년이에요. 책을 눌러 펼쳐보세요.
             </div>
+          </div>
+          <div className="ph-actions">
+            <button className="btn-fill" onClick={() => navigate('/collect/record/new')}>
+              + 기록 추가
+            </button>
           </div>
         </div>
 
@@ -48,10 +56,16 @@ export default function CollectBook() {
                   <div className="spine-emblem" />
                 </div>
               ))}
+
+              {/* 새 책 추가 슬롯 */}
+              <div className="book book-add" title="새 책 만들기" onClick={() => setShowCreate(true)}>
+                <span className="add-plus">+</span>
+              </div>
             </div>
           </div>
         )}
       </main>
+      {showCreate && <CreateBookModal onClose={() => setShowCreate(false)} />}
     </div>
   );
 }

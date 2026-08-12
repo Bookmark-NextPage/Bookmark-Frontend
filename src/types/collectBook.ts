@@ -1,5 +1,5 @@
-// 백엔드 Swagger 응답 구조를 그대로 반영한 타입들입니다.
-// API 응답이 바뀌면 이 파일을 먼저 수정하세요.
+// 백엔드 응답 구조를 반영한 타입들 (콜렉트북 조회/리더 파트).
+// 기록 "생성" 관련 타입은 types/record.ts (팀원 담당)에 있습니다.
 
 /** 콜렉트북 표지 색상 (백엔드 enum) */
 export type BookColor = 'PINK' | 'GREEN' | 'BLUE' | 'YELLOW' | 'PURPLE';
@@ -20,11 +20,18 @@ export interface FriendPageResponse {
   publicCollectBooks: PublicCollectBook[];
 }
 
-/** 친구 페이지에 노출되는 공개 콜렉트북 요약 */
 export interface PublicCollectBook {
   collectBookId: number;
   year: number;
   title: string;
+  bookColor: BookColor;
+}
+
+/** 콜렉트북 목록 항목 - GET /collect-books */
+export interface CollectBookListItem {
+  collectBookId: number;
+  title: string;
+  year: number;
   bookColor: BookColor;
 }
 
@@ -39,33 +46,31 @@ export interface CollectBookDetail {
   chapters: Chapter[];
 }
 
-/** 챕터 (기록 개수만 제공, 기록 목록은 별도 조회) */
+/** 챕터 (안에 기록 요약 목록 포함) */
 export interface Chapter {
   chapterId: number;
   sequence: number;
   name: string;
   recordCount: number;
+  records: RecordSummary[];
 }
 
-/**
- * 챕터 안 기록 목록 - GET /collect-books/{collectBookId}/chapters/{chapterId}/records
- * ⚠️ 이 API는 백엔드에서 추가 예정
- */
-export interface ChapterRecordSummary {
+/** 챕터 안 기록 요약 (상세 응답에 포함) */
+export interface RecordSummary {
   recordId: number;
   title: string;
-  summary?: string; // 미리보기용 한 줄 (백엔드 확정 후 조정)
-  recordCreatedAt?: string;
-  keywords?: string[];
+  content: string;
+  imageUrl: string | null;
+  keywords: string[];
 }
 
-/** 기록 상세 조회 - GET /collect-books/{collectBookId}/records/{recordId} */
+/** 기록 상세 조회 - GET /records/{recordId} */
 export interface RecordDetail {
   recordId: number;
   collectBookId: number;
   chapterId: number;
   chapterName: string;
-  recordCreatedAt: string; // 'YYYY.MM.DD'
+  recordCreatedAt: string; // ISO LocalDateTime
   title: string;
   content: string;
   keywords: string[];
@@ -83,11 +88,22 @@ export interface RecordComment {
   userId: number;
   nickname: string;
   content: string;
-  createdAt: string; // ISO 8601
+  createdAt: string;
 }
 
-/** 콜렉트북 목록 항목 - GET /collect-books */
-export interface CollectBookListItem {
+/** 콜렉트북 생성 요청 - POST /collect-books
+ *  주의: 표지색 필드명이 coverColor (상세조회의 bookColor와 다름) */
+export interface CollectBookCreateRequest {
+  title: string; // 최대 10자
+  coverColor: BookColor;
+  year: number;
+  visibility: Visibility; // 기본 PUBLIC
+  chapterType: ChapterType;
+  chapters: { name: string }[]; // MONTHLY: 12개, CUSTOM: 1~20개
+}
+
+/** 콜렉트북 생성 응답 */
+export interface CollectBookCreateResponse {
   collectBookId: number;
   title: string;
   year: number;
