@@ -307,16 +307,13 @@ export default function BucketBoard() {
   /* ---------------- 완료 / 삭제 ---------------- */
 
   const finishComplete = (memo: BucketMemo, goToCollectBook: boolean) => {
-    complete.mutate(memo.memoId, {
-      onSuccess: () => {
-        setCompleting(null);
-        // ⚠️ 콜랙트북 기록 작성 API가 붙으면 그 화면으로 바로 넘기세요.
-        //    지금은 콜랙트북 목록으로 이동하며 어떤 버킷이었는지 state로 넘깁니다.
-        if (goToCollectBook) {
-          navigate('/collect', { state: { fromBucket: memo.content } });
-        }
-      },
-    });
+    // 기록하기로 가면 기록 생성 API가 완료 처리까지 맡으므로 여기서는 완료를 호출하지 않습니다.
+    if (goToCollectBook) {
+      setCompleting(null);
+      navigate(`/collect/record/new?memoId=${memo.memoId}`);
+      return;
+    }
+    complete.mutate(memo.memoId, { onSuccess: () => setCompleting(null) });
   };
 
   const activeTagLabel =

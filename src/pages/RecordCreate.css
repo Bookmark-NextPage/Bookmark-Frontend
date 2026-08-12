@@ -1,0 +1,364 @@
+/* 칩(.chip) 스타일은 BucketBoard.css 와 공유합니다. */
+
+.record-main {
+  padding-bottom: 80px;
+}
+
+.back-link {
+  height: 36px;
+  padding: 0 16px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 18px;
+  background: var(--paper-2, #fffdf8);
+  font-size: 13px;
+  color: var(--ink, #5e1a09);
+  cursor: pointer;
+}
+.back-link:hover {
+  background: var(--kraft-2, #fbeee1);
+}
+
+.record-range {
+  margin: 0 0 16px;
+  font-size: 12.5px;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+
+.record-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.record-card {
+  padding: 26px 28px;
+  background: var(--paper-2, #fffdf8);
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 16px;
+}
+
+.source-chip {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 14px;
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 16px;
+  background: #f7f5ef;
+  font-size: 12.5px;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+.source-chip b {
+  color: var(--ink, #5e1a09);
+}
+
+.record-field {
+  margin-bottom: 20px;
+}
+.record-field > label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12.5px;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+.record-field input,
+.record-field textarea,
+.record-field select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 10px;
+  background: #f7f5ef;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink, #5e1a09);
+  outline: none;
+}
+.record-field textarea {
+  line-height: 1.6;
+  resize: vertical;
+}
+.record-field input:focus,
+.record-field textarea:focus {
+  border-color: var(--accent, #5e1a09);
+}
+.record-field .field-hint {
+  margin: 8px 0 0;
+  font-size: 11.5px;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+
+/* 이미지 */
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.image-tile,
+.image-add {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  border-radius: 10px;
+  background-color: #f0e9e6;
+  background-size: cover;
+  background-position: center;
+}
+.image-tile button {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(40, 30, 22, 0.72);
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+.image-add {
+  border: 1px dashed var(--line, #e7e0d3);
+  background: transparent;
+  font-size: 18px;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+  cursor: pointer;
+}
+.image-add:disabled {
+  cursor: progress;
+}
+
+/* 저장 위치 */
+.save-location {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #f7f0e8;
+  font-size: 13.5px;
+}
+.save-location b {
+  color: var(--ink, #5e1a09);
+}
+.save-location span {
+  font-size: 11.5px;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+.save-selects {
+  display: flex;
+  gap: 8px;
+}
+.save-selects select {
+  flex: 1;
+  min-width: 0;
+}
+
+.record-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+.record-actions button {
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  border: 1px solid var(--line, #e7e0d3);
+  font-size: 13.5px;
+  cursor: pointer;
+}
+.record-actions .ghost {
+  background: var(--paper-2, #fffdf8);
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+.record-actions .primary {
+  border-color: transparent;
+  background: var(--accent, #5e1a09);
+  color: #fff;
+  font-weight: 600;
+}
+.record-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.record-error {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  color: #8a3520;
+  text-align: right;
+}
+
+/* ---------- AI 패널 ---------- */
+
+.ai-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.ai-head h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink, #5e1a09);
+}
+.ai-head-actions {
+  display: flex;
+  gap: 6px;
+}
+.ai-head-actions button,
+.ai-export {
+  height: 30px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 15px;
+  background: var(--paper-2, #fffdf8);
+  font-size: 11.5px;
+  color: var(--ink, #5e1a09);
+  text-decoration: none;
+  cursor: pointer;
+}
+.ai-head-actions button:disabled,
+.ai-export.off {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.ai-preview {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f3e9ea;
+}
+.ai-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ai-empty {
+  padding: 24px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+
+.ai-meta {
+  margin: 18px 0 20px;
+}
+.ai-title {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ink, #5e1a09);
+}
+.ai-body {
+  margin: 0 0 12px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+
+@media (max-width: 860px) {
+  .record-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- AI 잠금 (aiUse = false) ---------- */
+
+.ai-card.is-locked {
+  background: #f7f5ef;
+}
+.ai-card.is-locked .ai-head h2 {
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+
+.ai-lock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 56px 24px;
+  text-align: center;
+}
+.ai-lock-mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #eae3d6;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+.ai-lock p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink-soft, rgba(94, 26, 9, 0.62));
+}
+.ai-lock button {
+  height: 36px;
+  padding: 0 18px;
+  border: 1px solid var(--line, #e7e0d3);
+  border-radius: 18px;
+  background: var(--paper-2, #fffdf8);
+  font-size: 12.5px;
+  color: var(--ink, #5e1a09);
+  cursor: pointer;
+}
+.ai-lock button:hover {
+  background: var(--kraft-2, #fbeee1);
+}
+.record-field .chip-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px 0 12px;
+  cursor: default;
+}
+.record-field .chip-input input {
+  width: 84px;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 12.5px;
+  color: var(--ink, #5e1a09);
+  outline: none;
+}
+.record-field .chip-input button {
+  height: 24px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent, #5e1a09);
+  color: #fff;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+.record-field .chip-ghost:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.field-hint.is-error {
+  color: #8a3520;
+}
+
+.ai-meta .chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
