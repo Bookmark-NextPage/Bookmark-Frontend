@@ -346,7 +346,7 @@ export default function RecordCreate() {
                     disabled={!collectBookId || chapters.isLoading}
                   >
                     <option value="">챕터 선택</option>
-                    {chapters.data?.chapters.map((c) => (
+                    {(chapters.data ?? []).map((c) => (
                       <option key={c.chapterId} value={c.chapterId}>
                         {c.name}
                       </option>

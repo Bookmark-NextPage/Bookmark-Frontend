@@ -1,14 +1,15 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   getKeywords,
+  createKeyword,
   uploadImages,
   generateScrapImage,
   saveAiImage,
   createRecordFromMemo,
   createRecordInChapter,
-  createKeyword,
+  getCollectBookOptions,
+  getChapterOptions,
 } from '../api/record';
-import { getCollectBooks, getCollectBook } from '../api/collectBook';
 import { useMyPage } from './useMyPage';
 import type { CreateRecordRequest } from '../types/record';
 
@@ -55,15 +56,13 @@ export const useSaveAiImage = () => {
   });
 };
 
-/** 콜렉트북 목록 (저장 위치 선택용) */
 export const useCollectBookList = () =>
-  useQuery({ queryKey: ['collectBooks'], queryFn: getCollectBooks });
+  useQuery({ queryKey: ['collectBookOptions'], queryFn: getCollectBookOptions });
 
-/** 선택한 콜렉트북의 챕터 목록 */
 export const useCollectBookChapters = (collectBookId?: number) =>
   useQuery({
-    queryKey: ['collectBook', collectBookId],
-    queryFn: () => getCollectBook(collectBookId!),
+    queryKey: ['chapterOptions', collectBookId],
+    queryFn: () => getChapterOptions(collectBookId!),
     enabled: !!collectBookId,
   });
 
