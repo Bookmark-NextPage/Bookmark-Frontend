@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
+
 import './Header.css';
 
 export default function Header() {
   const navigate = useNavigate();
   const logout = useAuthStore((s) => s.logout);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+
 
   const handleLogout = () => {
     logout(); // 토큰 삭제 (서버 호출 없음)
@@ -20,8 +23,8 @@ export default function Header() {
         <small>2026</small>
       </div>
       <nav className="bm-tabs">
-        <button onClick={() => navigate('/board')}>버킷보드</button>
-        <button onClick={() => navigate('/collect')}>콜랙트북</button>
+        <button className={pathname === '/board' ? 'on' : ''} onClick={() => navigate('/board')}>버킷보드</button>
+        <button className={pathname.startsWith('/collect') ? 'on' : ''} onClick={() => navigate('/collect')}>콜랙트북</button>
       </nav>
       <div className="bm-top-right">
         <div className="bm-search">
