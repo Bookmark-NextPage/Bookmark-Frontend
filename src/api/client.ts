@@ -16,14 +16,26 @@ client.interceptors.request.use((config) => {
   return config;
 });
 
-// 응답 인터셉터: 401(인증 만료) 처리
+// 응답 인터셉터: 401 처리 + ApiResponse 언래핑
 client.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    // 백엔드가 { isSuccess, code, message, result, timestamp } 로 감싼 경우
+    // result만 꺼내서 넘겨줌. 안 감싼 응답(홈/로그인 등)은 그대로 둠.
+    const body = response.data;
+    if (
+      body &&
+      typeof body === 'object' &&
+      'isSuccess' in body &&
+      'result' in body
+    ) {
+      response.data = body.result;
+    }
+    return response;
+  },
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem('accessToken');
       console.warn('토큰이 없거나 만료됐어요. 다시 로그인이 필요해요.');
-      // 필요하면 로그인 페이지로 이동
     }
     return Promise.reject(error);
   },
