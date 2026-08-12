@@ -11,3 +11,27 @@ export const getFriendPage = async (friendUserId: number) => {
 export const deleteFriend = async (friendUserId: number) => {
   await client.delete(`/friends/${friendUserId}`);
 };
+
+export interface FriendSearchResult {
+  userId: number;
+  name: string;
+  loginId: string;
+  profileImageUrl: string | null;
+}
+
+export const searchUsers = async (name: string) => {
+  const { data } = await client.get<FriendSearchResult[]>('/friends/search', {
+    params: { name },
+  });
+  return data;
+};
+
+export const addFriend = async (friendUserId: number) => {
+  const { data } = await client.post<FriendSearchResult>('/friends', { friendUserId });
+  return data;
+};
+
+export const getFriends = async () => {
+  const { data } = await client.get<FriendSearchResult[]>('/friends');
+  return data;
+};

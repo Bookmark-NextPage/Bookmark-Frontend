@@ -1,4 +1,6 @@
 import axios from 'axios';
+console.log('환경변수 확인:', import.meta.env.VITE_API_BASE_URL); // ⬅️ 이 줄 추가!
+
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
