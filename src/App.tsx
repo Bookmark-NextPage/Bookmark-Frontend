@@ -8,6 +8,8 @@ import FriendProfile from './pages/FriendProfile';
 import BucketBoard from './pages/BucketBoard';
 import MemoEdit from './pages/MemoEdit';
 import RecordCreate from './pages/RecordCreate';
+import CollectBookDetail from './pages/CollectBookDetail';
+import RecordReader from './pages/RecordReader';
 
 function App() {
   return (
@@ -22,12 +24,14 @@ function App() {
           <Route path="/board" element={<BucketBoard />} />
           <Route path="/board/edit/:memoId" element={<MemoEdit />} />
           <Route path="/collect" element={<CollectBook />} />
-          <Route path="/collect/:id" element={<div>콜랙트북 상세 (작업 예정)</div>} />
           <Route path="/collect/record/new" element={<RecordCreate />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/friend/:id" element={<FriendProfile />} />
           <Route path="/settings" element={<div>설정</div>} />
           <Route path="/noti" element={<div>알림</div>} />
+          <Route path="/collect" element={<CollectBook />} />
+          <Route path="/collect/:id" element={<CollectBookDetail />} />
+          <Route path="/record/:recordId" element={<RecordReader />} />
         </Route>
       </Routes>
     </BrowserRouter>

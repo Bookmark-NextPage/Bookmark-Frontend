@@ -1,0 +1,182 @@
+.cbm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 25, 15, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+.cbm-modal {
+  position: relative;
+  width: 480px;
+  max-width: 94vw;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--paper-2);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 34px 32px 28px;
+  box-sizing: border-box;
+}
+.cbm-close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  line-height: 1;
+}
+.cbm-title {
+  font-family: 'Pretendard';
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink);
+}
+.cbm-sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 6px 0 22px;
+}
+.cbm-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 18px 0 8px;
+}
+.cbm-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Pretendard';
+}
+.cbm-input:focus {
+  border-color: var(--accent-2);
+}
+.cbm-colors {
+  display: flex;
+  gap: 12px;
+}
+.cbm-color {
+  width: 48px;
+  height: 56px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.15s;
+}
+.cbm-color.on {
+  border-color: var(--ink);
+  transform: translateY(-3px);
+}
+.cbm-tabs {
+  display: flex;
+  gap: 8px;
+}
+.cbm-tab {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 18px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.cbm-tab.on {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.cbm-monthly-note {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  background: var(--kraft-2);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 12px;
+}
+.cbm-chapters {
+  margin-top: 12px;
+}
+.cbm-chapter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.cbm-ch-num {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  width: 46px;
+  flex: none;
+}
+.cbm-ch-input {
+  flex: 1;
+}
+.cbm-ch-del {
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  flex: none;
+}
+.cbm-add-chapter {
+  border: 1px dashed var(--board-edge);
+  background: none;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  font-size: 13px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  margin-top: 4px;
+}
+.cbm-add-chapter:hover {
+  background: var(--kraft-2);
+}
+.cbm-error {
+  font-size: 12.5px;
+  color: #b23b3b;
+  margin-top: 14px;
+}
+.cbm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+.cbm-cancel {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 20px;
+  padding: 10px 22px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.cbm-submit {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.cbm-submit:disabled,
+.cbm-cancel:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
