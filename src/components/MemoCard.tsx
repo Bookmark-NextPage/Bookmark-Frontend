@@ -58,7 +58,7 @@ export default function MemoCard({
   x,
   y,
   imageUrl,
-  color,
+  // color,
   ink,
   contentArea,
   dragging,

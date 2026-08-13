@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { safeImageUrl } from '../utils/Image';
+import { safeImageUrl } from '../utils/image';
 import type { MemoCategory, MemoDesign } from '../types/bucket';
 
 interface Props {
