@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { PointerEvent as ReactPointerEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
-import MemoCard from '../components/Memocard';
+import MemoCard from '../components/MemoCard';
 import MemoComposer from '../components/Memocomposer';
 import CompleteDialog from '../components/CompleteDialog';
 import ConfirmDialog from '../components/ConfirmDialog';
@@ -18,7 +18,7 @@ import {
   useCreateCategory,
 } from '../hooks/useBucketBoard';
 import { getThemeStyle, THEME_DESC, FALLBACK_THEMES } from '../constants/Boardthemes';
-import { preloadImages, safeImageUrl } from '../utils/Image';
+import { preloadImages, safeImageUrl } from '../utils/image';
 import type { BoardTheme, BucketMemo, MemoCategory, MemoDesign } from '../types/bucket';
 import './BucketBoard.css';
 
@@ -39,7 +39,7 @@ const POS_MODE = 'ratio' as PosMode;
 
 /** 메모지 크기. 이미지 비율이 찌그러지지 않게 고정합니다. CSS와 반드시 동일하게. */
 const MEMO_W = 184;
-const MEMO_H = 154;
+// const MEMO_H = 154;
 /**
  * 보드 높이 계산용 여유값.
  * 메모지 세로가 내용에 따라 늘어나므로, 가장 아래 메모지가 잘리지 않게 넉넉히 잡습니다.
@@ -459,9 +459,9 @@ export default function BucketBoard() {
                     }}
                     dragging={dragView?.memoId === memo.memoId}
                     onPointerDown={handlePointerDown}
-                    onEdit={(m) => navigate(`/board/edit/${m.memoId}`)}
-                    onDelete={(m) => setDeleting(m)}
-                    onComplete={(m) => setCompleting(m)}
+                    onEdit={(m: any) => navigate(`/board/edit/${m.memoId}`)}
+                    onDelete={(m: any) => setDeleting(m)}
+                    onComplete={(m: any) => setCompleting(m)}
                     onNudge={handleNudge}
                 />
               );
