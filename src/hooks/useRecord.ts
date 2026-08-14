@@ -10,6 +10,7 @@ import {
   getCollectBookOptions,
   getChapterOptions,
 } from '../api/record';
+import { completeMemo } from '../api/bucket';
 import { useMyPage } from './useMyPage';
 import type { CreateRecordRequest } from '../types/record';
 
@@ -71,12 +72,22 @@ export const useCreateRecord = () => {
   const qc = useQueryClient();
 
   return useMutation({
-    mutationFn: (args: {
+    mutationFn: async (args: {
       memoId?: number;
       chapterId?: number;
       body: CreateRecordRequest;
     }) => {
-      if (args.memoId) return createRecordFromMemo(args.memoId, args.body);
+      if (args.memoId) {
+        const record = await createRecordFromMemo(args.memoId, args.body);
+        // 메모지에서 나온 기록이 생성되면, 원본 메모지를 완료 처리해서
+        // 버킷보드에서 사라지도록 합니다. (기록은 이미 저장됐으니 실패해도 무시)
+        try {
+          await completeMemo(args.memoId);
+        } catch (err) {
+          console.error('메모 완료 처리 실패(기록은 정상 저장됨):', err);
+        }
+        return record;
+      }
       if (args.chapterId) return createRecordInChapter(args.chapterId, args.body);
       return Promise.reject(new Error('저장 위치가 정해지지 않았어요.'));
     },
