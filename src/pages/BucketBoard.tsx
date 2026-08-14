@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { PointerEvent as ReactPointerEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useQueryClient } from '@tanstack/react-query';
 import Header from '../components/Header';
 import MemoCard from '../components/MemoCard';
 import MemoComposer from '../components/Memocomposer';
@@ -17,11 +16,10 @@ import {
   useCompleteMemo,
   useSelectBoardTheme,
   useCreateCategory,
-  BUCKET_BOARD_KEY,
 } from '../hooks/useBucketBoard';
 import { getThemeStyle, THEME_DESC, FALLBACK_THEMES } from '../constants/Boardthemes';
 import { preloadImages, safeImageUrl } from '../utils/image';
-import type { BoardTheme, BucketBoardResponse, BucketMemo, MemoCategory, MemoDesign } from '../types/bucket';
+import type { BoardTheme, BucketMemo, MemoCategory, MemoDesign } from '../types/bucket';
 import './BucketBoard.css';
 
 /* ------------------------------------------------------------------ */
