@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 
 import './Header.css';
+import SearchBox from './SearchBox';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -27,9 +28,7 @@ export default function Header() {
         <button className={pathname.startsWith('/collect') ? 'on' : ''} onClick={() => navigate('/collect')}>콜랙트북</button>
       </nav>
       <div className="bm-top-right">
-        <div className="bm-search">
-          <input placeholder="검색" />
-        </div>
+        <SearchBox />
         <div className="bm-bell" onClick={() => navigate('/noti')}>
           🔔
           <span className="bm-badge">3</span>
