@@ -5,7 +5,9 @@
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--paper-2);
-  padding: 9px 18px;
+  padding: 0 18px;       
+  height: 38px;         
+  line-height: 36px;
   font-size: 13px;
   color: var(--ink);
   outline: none;

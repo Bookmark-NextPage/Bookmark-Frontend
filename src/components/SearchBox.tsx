@@ -92,6 +92,7 @@ export default function SearchBox() {
         onFocus={() => setFocused(true)}
         onBlur={() => setTimeout(() => setFocused(false), 150)} // 클릭 여유
       />
+      
       {showDropdown && (
         <div className="search-drop">
           {hits.length === 0 ? (
