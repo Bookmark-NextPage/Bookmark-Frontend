@@ -4,6 +4,7 @@ import { useAuthStore } from '../store/authStore';
 
 import './Header.css';
 import SearchBox from './SearchBox';
+import NotiBell from './NotiBell';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -29,10 +30,7 @@ export default function Header() {
       </nav>
       <div className="bm-top-right">
         <SearchBox />
-        <div className="bm-bell" onClick={() => navigate('/noti')}>
-          🔔
-          <span className="bm-badge">3</span>
-        </div>
+        <NotiBell />
         <div className="bm-avatar-wrap">
           <div className="bm-avatar" onClick={() => setMenuOpen((v) => !v)}>
             나
