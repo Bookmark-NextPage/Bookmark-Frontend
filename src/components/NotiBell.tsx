@@ -9,7 +9,13 @@ export default function NotiBell() {
   const count = data?.unreadCount ?? 0;
 
   return (
-    <div className="noti-bell" onClick={() => navigate('/noti')} title="알림">
+    <div
+      className="noti-bell"
+      tabIndex={0}
+      role="button"
+      onClick={() => navigate('/noti')}
+      title="알림"
+    >
       🔔
       {count > 0 && <span className="noti-badge">{count > 99 ? '99+' : count}</span>}
     </div>
