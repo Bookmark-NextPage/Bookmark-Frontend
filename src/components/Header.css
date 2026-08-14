@@ -114,6 +114,16 @@
   font-size: 14px;
   color: rgba(94, 26, 9, 0.62);
   cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+.bm-avatar:focus,
+.bm-avatar:focus-visible {
+  outline: none;
+  border-color: var(--accent-2);
+}
+.bm-avatar:active {
+  border-color: var(--accent-2);
 }
 
 /* 아바타 드롭다운 메뉴 */

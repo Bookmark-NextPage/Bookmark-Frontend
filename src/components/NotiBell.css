@@ -1,0 +1,49 @@
+.noti-bell {
+  position: relative;
+  cursor: pointer;
+
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border: 1px solid #e7e0d3;
+  border-radius: 50%;
+  background: #f7f5ef;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  box-sizing: border-box;
+
+  transition: border-color 0.15s, background 0.15s;
+}
+.noti-bell:focus,
+.noti-bell:focus-visible {
+  outline: none;
+  border-color: var(--accent-2);
+}
+.noti-bell:active {
+  border-color: var(--accent-2);
+  background: var(--kraft-2);
+}
+
+.noti-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 4px;
+  box-sizing: border-box;
+}

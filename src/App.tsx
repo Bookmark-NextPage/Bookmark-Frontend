@@ -10,6 +10,8 @@ import MemoEdit from './pages/MemoEdit';
 import RecordCreate from './pages/RecordCreate';
 import CollectBookDetail from './pages/CollectBookDetail';
 import RecordReader from './pages/RecordReader';
+import Notifications from './pages/Notifications';
+import Settings from './pages/Settings';
 
 function App() {
   return (
@@ -27,8 +29,8 @@ function App() {
           <Route path="/collect/record/new" element={<RecordCreate />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/friend/:id" element={<FriendProfile />} />
-          <Route path="/settings" element={<div>설정</div>} />
-          <Route path="/noti" element={<div>알림</div>} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/noti" element={<Notifications />} />
           <Route path="/collect" element={<CollectBook />} />
           <Route path="/collect/:id" element={<CollectBookDetail />} />
           <Route path="/record/:recordId" element={<RecordReader />} />

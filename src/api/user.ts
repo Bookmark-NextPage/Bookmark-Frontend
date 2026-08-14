@@ -38,3 +38,20 @@ export const updateProfile = async (payload: { name: string; bio: string }) => {
   const { data } = await client.patch('/user/me/profile', payload);
   return data;
 };
+
+/** 로그아웃 (서버 알림 후 클라이언트가 토큰 삭제) */
+export const logoutApi = async () => {
+  await client.post('/user/logout');
+};
+
+/** 회원 탈퇴 (비밀번호 재확인 필요) */
+export const withdrawUser = async (password: string) => {
+  await client.delete('/user/me', { data: { password } });
+};
+
+/** AI 기능 ON/OFF 변경
+ *  ⚠️ 백엔드 엔드포인트 경로 확인 필요 (예: PATCH /user/me/ai-use) */
+export const updateAiUse = async (aiUse: boolean) => {
+  const { data } = await client.patch('/user/me/ai-use', { aiUse });
+  return data;
+};

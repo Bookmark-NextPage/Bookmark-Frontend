@@ -1,9 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';import { getMyPage, updateProfile } from '../api/user';
+import Header from '../components/Header';
+import { getMyPage, updateProfile } from '../api/user';
 import { addFriend, searchUsers, type FriendSearchResult } from '../api/friend'; // friend.ts에 함수 추가하신 다음!
 import type { MyPageResponse } from '../types/user';
 import './MyPage.css';
+
+/** 콜랙트북 공개 범위 라벨 */
+const VISIBILITY_LABEL: Record<string, string> = {
+  PUBLIC: '전체공개',
+  FRIENDS: '친구공개',
+  PRIVATE: '비공개',
+};
 
 export default function MyPage() {
   const navigate = useNavigate();
@@ -177,7 +185,9 @@ export default function MyPage() {
                     <span className="priv-book-label">
                       {b.year} · {b.title}
                     </span>
-                    <span className="priv-book-label">{b.visibility}</span>
+                    <span className="priv-book-label">
+                      {VISIBILITY_LABEL[b.visibility] ?? b.visibility}
+                    </span>
                   </div>
                 ))}
               </div>

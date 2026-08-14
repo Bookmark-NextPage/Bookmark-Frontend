@@ -307,7 +307,9 @@ export default function BucketBoard() {
   /* ---------------- 완료 / 삭제 ---------------- */
 
   const finishComplete = (memo: BucketMemo, goToCollectBook: boolean) => {
-    // 기록하기로 가면 기록 생성 API가 완료 처리까지 맡으므로 여기서는 완료를 호출하지 않습니다.
+    // 기록하기로 가면 기록 생성 API(useCreateRecord/useSaveAiImage)가
+    // 성공 시 bucketBoard 캐시를 자동으로 무효화하므로,
+    // 여기서는 그냥 이동만 하면 됩니다. (미리 지우지 않음 → 실제 저장 완료 시점에만 사라짐)
     if (goToCollectBook) {
       setCompleting(null);
       navigate(`/collect/record/new?memoId=${memo.memoId}`);
