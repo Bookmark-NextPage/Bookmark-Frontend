@@ -46,7 +46,10 @@ export const logoutApi = async () => {
 
 /** 회원 탈퇴 (비밀번호 재확인 필요) */
 export const withdrawUser = async (password: string) => {
-  await client.delete('/user/me', { data: { password } });
+  await client.delete('/user/me', {
+    data: { password },
+    headers: { 'Content-Type': 'application/json' },
+  });
 };
 
 /** AI 기능 ON/OFF 변경
