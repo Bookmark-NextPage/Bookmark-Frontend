@@ -5,6 +5,7 @@ import type {
   RecordCreated,
   ScrapImageRequest,
   ScrapImageResult,
+  RecordSearchResponse,
 } from '../types/record';
 
 /**
@@ -91,4 +92,11 @@ export const getChapterOptions = async (collectBookId: number) => {
     client.get(`/collect-books/${collectBookId}`),
   );
   return book.chapters ?? [];
+};
+
+export const searchRecords = async (keyword: string) => {
+  const { data } = await client.get<RecordSearchResponse[]>('/records/search', {
+    params: { keyword },
+  });
+  return data;
 };
