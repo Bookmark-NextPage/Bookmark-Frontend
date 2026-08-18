@@ -52,7 +52,7 @@ export const THEME_STYLE: Record<number, ThemeStyle> = {
   }, // 노을
   5: {
     bgFit: 'cover',
-    ink: '#eceaf5',
+    ink: '#7571ff',
     fallbackBg: '#2b2c40',
     memoFallback: ['#3b3d55', '#454763', '#3f4a5e', '#4b4159', '#39415a'],
   }, // 밤
