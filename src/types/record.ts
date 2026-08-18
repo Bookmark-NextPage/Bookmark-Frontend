@@ -53,3 +53,11 @@ export interface ScrapImageRequest {
 export interface ScrapImageResult {
   tempImageUrl: string;
 }
+
+export interface RecordSearchResponse {
+  recordId: number;
+  title: string | null;
+  chapterName: string;
+  collectBookTitle: string;
+  createdAt: string;
+}
