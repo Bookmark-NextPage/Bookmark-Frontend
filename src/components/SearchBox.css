@@ -1,0 +1,134 @@
+/* .search-box {
+  position: relative;
+}
+.search-input {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper-2);
+  padding: 0 18px;       
+  height: 38px;         
+  line-height: 36px;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+  width: 240px;
+  box-sizing: border-box;
+}
+.search-input:focus {
+  border-color: var(--accent-2);
+}
+.search-drop {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 340px;
+  max-width: 80vw;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 6px;
+  z-index: 70;
+  max-height: 380px;
+  overflow-y: auto;
+}
+.search-hit {
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.search-hit:hover {
+  background: var(--kraft-2);
+}
+.sh-title {
+  font-size: 13.5px;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.sh-sub {
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+.search-empty {
+  padding: 16px 12px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.hl {
+  background: #ffe8a3;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+} */
+
+.search-box {
+  position: relative;
+  display: flex;        /* 추가 */
+  align-items: center;  /* 추가 */
+}
+.search-input {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper-2);
+  padding: 0 18px;
+  margin-top: 20px;
+  height: 38px;
+  line-height: normal;   /* 36px → normal */
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+  width: 240px;
+  box-sizing: border-box;
+}
+.search-input:focus {
+  border-color: var(--accent-2);
+}
+.search-drop {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 340px;
+  max-width: 80vw;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 6px;
+  z-index: 70;
+  max-height: 380px;
+  overflow-y: auto;
+}
+.search-hit {
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.search-hit:hover {
+  background: var(--kraft-2);
+}
+.sh-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.sh-sub {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+.search-empty {
+  padding: 16px 12px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* 형광펜 하이라이트 */
+.hl {
+  background: #ffe8a3;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}

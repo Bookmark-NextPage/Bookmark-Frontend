@@ -1,0 +1,56 @@
+import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuthStore } from '../store/authStore';
+
+import './Header.css';
+import SearchBox from './SearchBox';
+import NotiBell from './NotiBell';
+
+export default function Header() {
+  const navigate = useNavigate();
+  const logout = useAuthStore((s) => s.logout);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+
+
+  const handleLogout = () => {
+    logout(); // 토큰 삭제 (서버 호출 없음)
+    navigate('/login');
+  };
+
+  return (
+    <header className="bm-header">
+      <div className="bm-logo" onClick={() => navigate('/')}>
+        Book<span>Mark</span>
+        <small>2026</small>
+      </div>
+      <nav className="bm-tabs">
+        <button className={pathname === '/board' ? 'on' : ''} onClick={() => navigate('/board')}>버킷보드</button>
+        <button className={pathname.startsWith('/collect') ? 'on' : ''} onClick={() => navigate('/collect')}>콜랙트북</button>
+      </nav>
+      <div className="bm-top-right">
+        <SearchBox />
+        <NotiBell />
+        <div className="bm-avatar-wrap">
+          <div className="bm-avatar" onClick={() => setMenuOpen((v) => !v)}>
+            나
+          </div>
+          {menuOpen && (
+            <>
+              <div className="bm-menu-backdrop" onClick={() => setMenuOpen(false)} />
+              <div className="bm-menu">
+                <div onClick={() => { setMenuOpen(false); navigate('/mypage'); }}>
+                  마이페이지
+                </div>
+                <div onClick={() => { setMenuOpen(false); navigate('/settings'); }}>
+                  설정
+                </div>
+                <div onClick={handleLogout}>로그아웃</div>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </header>
+  );
+}
